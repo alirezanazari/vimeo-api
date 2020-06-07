@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Vimeo Api</string>
+    <string name="search_video">Search Video</string>
 </resources>

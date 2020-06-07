@@ -1,13 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    style="@style/appPagesRootStyle"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.search.SearchFragment">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Hello" />
+    <View
+        android:id="@+id/lytSearch"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/search_height"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/round_white_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent=".6" />
 
-</FrameLayout>
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/edtSearch"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="10dp"
+        android:background="@android:color/transparent"
+        android:hint="@string/search_video"
+        android:singleLine="true"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/large_textSize"
+        app:layout_constraintBottom_toBottomOf="@id/lytSearch"
+        app:layout_constraintEnd_toEndOf="@id/lytSearch"
+        app:layout_constraintStart_toStartOf="@id/lytSearch"
+        app:layout_constraintTop_toTopOf="@id/lytSearch" />
+
+    <ImageView
+        android:id="@+id/btnSearch"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/round_accent_background"
+        android:padding="16dp"
+        android:src="@drawable/search"
+        app:layout_constraintBottom_toBottomOf="@id/lytSearch"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/lytSearch"
+        app:layout_constraintTop_toTopOf="@id/lytSearch"
+        app:layout_constraintWidth_percent=".15" />
+
+    <ImageView
+        android:id="@+id/btnSort"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/round_accent_background"
+        android:padding="16dp"
+        android:src="@drawable/accending"
+        app:layout_constraintBottom_toBottomOf="@id/lytSearch"
+        app:layout_constraintEnd_toStartOf="@id/lytSearch"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/lytSearch"
+        app:layout_constraintWidth_percent=".15" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvVideos"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/lytSearch" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
