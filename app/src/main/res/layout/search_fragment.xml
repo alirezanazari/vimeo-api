@@ -69,4 +69,39 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/lytSearch" />
 
+    <ProgressBar
+        android:id="@+id/pbLoading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@id/rvVideos"
+        app:layout_constraintEnd_toEndOf="@id/rvVideos"
+        app:layout_constraintStart_toStartOf="@id/rvVideos"
+        app:layout_constraintTop_toTopOf="@id/rvVideos" />
+
+    <TextView
+        android:id="@+id/tvError"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/no_item"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/standard_textSize"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@id/rvVideos"
+        app:layout_constraintStart_toStartOf="@id/rvVideos"
+        app:layout_constraintTop_toBottomOf="@id/btnRetry" />
+
+    <ImageView
+        android:id="@+id/btnRetry"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:padding="6dp"
+        android:tint="@android:color/white"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@id/rvVideos"
+        app:layout_constraintEnd_toEndOf="@id/rvVideos"
+        app:layout_constraintStart_toStartOf="@id/rvVideos"
+        app:layout_constraintTop_toTopOf="@id/rvVideos"
+        app:srcCompat="@drawable/ic_retry" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

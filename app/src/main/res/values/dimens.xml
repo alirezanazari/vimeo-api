@@ -3,4 +3,5 @@
     <dimen name="standard_radius">24dp</dimen>
     <dimen name="search_height">60dp</dimen>
     <dimen name="large_textSize">16sp</dimen>
+    <dimen name="standard_textSize">14sp</dimen>
 </resources>
