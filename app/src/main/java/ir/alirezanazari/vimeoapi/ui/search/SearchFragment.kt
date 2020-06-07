@@ -11,10 +11,11 @@ import ir.alirezanazari.vimeoapi.internal.Constants.Net.DIRECTION_DESC
 import ir.alirezanazari.vimeoapi.internal.Logger
 import ir.alirezanazari.vimeoapi.ui.BaseFragment
 import kotlinx.android.synthetic.main.search_fragment.*
+import org.koin.android.ext.android.inject
 
 class SearchFragment : BaseFragment() {
 
-    private lateinit var viewModel: SearchViewModel
+    private val viewModel: SearchViewModel by inject()
     private var page = 1
     private var isEndOfList = false
     private var isSortAscending = true
