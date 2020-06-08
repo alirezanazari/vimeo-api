@@ -49,7 +49,8 @@ class SearchFragment : BaseFragment() {
 
         searchAdapter.onClick = {
             it?.let {
-                Navigator.openVideo(it, activity?.supportFragmentManager)
+                val uri = it.split("/")
+                Navigator.openVideo(uri[uri.size -1], activity?.supportFragmentManager)
             }
         }
 

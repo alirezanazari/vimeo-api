@@ -27,6 +27,7 @@ class NetworkDataManagerImpl(
         return try {
             return api.getVideo(uri).await()
         } catch (e: HttpException) {
+            e.printStackTrace()
             Logger.showLog("Error fetch video : ${e.message()}")
             null
         } catch (ex: IOException) {
@@ -40,6 +41,7 @@ class NetworkDataManagerImpl(
             val response = api.getVideoComments(uri, page).await()
             return response.comments
         } catch (e: HttpException) {
+            e.printStackTrace()
             Logger.showLog("Error fetch comments : ${e.message()}")
             null
         } catch (ex: IOException) {

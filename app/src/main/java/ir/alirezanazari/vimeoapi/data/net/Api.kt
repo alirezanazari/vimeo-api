@@ -13,7 +13,7 @@ import retrofit2.http.Query
 
 interface Api {
 
-    @GET("/videos")
+    @GET("videos")
     fun getSearchVideo(
         @Query("query") query: String,
         @Query("page") page: Int,
@@ -21,12 +21,12 @@ interface Api {
         @Query("direction") direction: String = DIRECTION_ASC
     ): Deferred<SearchVideoResponse>
 
-    @GET("{uri}")
+    @GET("videos/{uri}")
     fun getVideo(
         @Path("uri") uri: String
     ): Deferred<Video>
 
-    @GET("{uri}/comments")
+    @GET("videos/{uri}/comments")
     fun getVideoComments(
         @Path("uri") uri: String,
         @Query("page") page: Int,

@@ -12,6 +12,8 @@ data class Video(
     val description: String?,
     @SerializedName("duration")
     val duration: Int,
+    @SerializedName("embed")
+    val embed: Embed,
     @SerializedName("modified_time")
     val modifiedTime: String,
     @SerializedName("pictures")
