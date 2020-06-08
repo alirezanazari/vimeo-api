@@ -7,7 +7,7 @@
     </style>
 
     <style name="appPagesRootStyle">
-        <item name="android:background">@color/colorPrimaryDark</item>
+        <item name="android:background">@color/colorPrimary</item>
         <item name="android:clickable">true</item>
         <item name="android:focusable">true</item>
     </style>

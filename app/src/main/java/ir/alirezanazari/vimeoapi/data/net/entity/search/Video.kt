@@ -4,6 +4,8 @@ package ir.alirezanazari.vimeoapi.data.net.entity.search
 import com.google.gson.annotations.SerializedName
 
 data class Video(
+    @SerializedName("uri")
+    val uri: String,
     @SerializedName("name")
     val name: String,
     @SerializedName("description")

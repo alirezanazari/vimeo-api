@@ -28,6 +28,7 @@
         android:singleLine="true"
         android:textColor="@android:color/black"
         android:textSize="@dimen/large_textSize"
+        android:imeOptions="actionDone"
         app:layout_constraintBottom_toBottomOf="@id/lytSearch"
         app:layout_constraintEnd_toEndOf="@id/lytSearch"
         app:layout_constraintStart_toStartOf="@id/lytSearch"
