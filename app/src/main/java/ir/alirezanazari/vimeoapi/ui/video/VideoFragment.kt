@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
 import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.LinearLayoutManager
 import ir.alirezanazari.vimeoapi.R
 import ir.alirezanazari.vimeoapi.internal.Logger
 import ir.alirezanazari.vimeoapi.ui.BaseFragment
@@ -21,6 +22,8 @@ class VideoFragment : BaseFragment() {
     }
 
     private val viewModel: VideoViewModel by inject()
+    private val picturesAdapter: VideoPicturesAdapter by inject()
+    private val commentsAdapter: VideoCommentsAdapter by inject()
     private lateinit var uri: String
 
     override fun onCreateView(
@@ -33,15 +36,28 @@ class VideoFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupListeners()
+        setupRecyclers()
 
         arguments?.let {
-            uri = it.getString("uri" , "")
+            uri = it.getString("uri", "")
             Logger.showLog(uri)
             viewModel.getVideoInfo(uri)
         }
     }
 
-    private fun setupListeners(){
+    private fun setupRecyclers() {
+        rvPictures.apply {
+            adapter = picturesAdapter
+            layoutManager = LinearLayoutManager(this.context, LinearLayoutManager.HORIZONTAL, false)
+        }
+
+        rvComments.apply {
+            adapter = commentsAdapter
+            layoutManager = LinearLayoutManager(this.context)
+        }
+    }
+
+    private fun setupListeners() {
         btnBack.setOnClickListener {
             popupBackStack()
         }
@@ -50,39 +66,40 @@ class VideoFragment : BaseFragment() {
             viewModel.getVideoInfo(uri)
         }
 
-        viewModel.videoResponse.observe(viewLifecycleOwner , Observer {
+        viewModel.videoResponse.observe(viewLifecycleOwner, Observer {
             it?.let {
                 tvTitle.text = it.name
-                //show images
+                picturesAdapter.setItems(it.pictures.sizes)
                 //show player
             }
         })
 
-        viewModel.commentsResponse.observe(viewLifecycleOwner , Observer {
+        viewModel.commentsResponse.observe(viewLifecycleOwner, Observer {
             it?.let {
-                //show comments
+                commentsAdapter.setItems(it)
+                if (it.isEmpty()) tvNoComment.visibility = View.VISIBLE
             }
         })
 
-        viewModel.loaderVisibilityListener.observe(viewLifecycleOwner , Observer {
+        viewModel.loaderVisibilityListener.observe(viewLifecycleOwner, Observer {
             it?.let {
-                if (it){
+                if (it) {
                     pbLoading.visibility = View.VISIBLE
                     grContent.visibility = View.GONE
-                }else{
+                } else {
                     pbLoading.visibility = View.GONE
                     grContent.visibility = View.VISIBLE
                 }
             }
         })
 
-        viewModel.errorVisibilityListener.observe(viewLifecycleOwner , Observer {
+        viewModel.errorVisibilityListener.observe(viewLifecycleOwner, Observer {
             it?.let {
-                if (it){
+                if (it) {
                     tvError.visibility = View.VISIBLE
                     btnRetry.visibility = View.VISIBLE
                     grContent.visibility = View.GONE
-                }else{
+                } else {
                     tvError.visibility = View.GONE
                     btnRetry.visibility = View.GONE
                     grContent.visibility = View.VISIBLE

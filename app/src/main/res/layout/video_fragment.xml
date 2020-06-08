@@ -47,22 +47,59 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/toolbar" />
 
+    <TextView
+        android:id="@+id/lblPictures"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="@string/pictures"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="@dimen/large_textSize"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/videoPlayer" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvPictures"
         android:layout_width="0dp"
         android:layout_height="@dimen/toolbar_height"
+        android:layout_margin="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/videoPlayer" />
+        app:layout_constraintTop_toBottomOf="@id/lblPictures" />
+
+    <TextView
+        android:id="@+id/lblComments"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="@string/comments"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="@dimen/large_textSize"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rvPictures" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvComments"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginTop="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/rvPictures" />
+        app:layout_constraintTop_toBottomOf="@id/lblComments" />
+
+    <TextView
+        android:id="@+id/tvNoComment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/no_comment"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="@dimen/small_textSize"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@id/rvComments"
+        app:layout_constraintEnd_toEndOf="@id/rvComments"
+        app:layout_constraintStart_toStartOf="@id/rvComments"
+        app:layout_constraintTop_toTopOf="@id/rvComments" />
 
     <ProgressBar
         android:id="@+id/pbLoading"
@@ -105,6 +142,6 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:visibility="gone"
-        app:constraint_referenced_ids="videoPlayer,rvComments,rvPictures" />
+        app:constraint_referenced_ids="videoPlayer,rvComments,rvPictures,lblComments,lblPictures" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
