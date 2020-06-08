@@ -52,6 +52,7 @@ dependencies {
     implementation "com.squareup.retrofit2:retrofit:$rootProject.retrofit_version"
     implementation "com.squareup.retrofit2:converter-gson:$rootProject.retrofit_version"
     implementation 'com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:0.9.2'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.12.1'
 
     // Koin(Dependency Injection)
     implementation "org.koin:koin-android:$rootProject.koin_version"
