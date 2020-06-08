@@ -12,9 +12,12 @@ class ApiConfig {
 
     companion object {
 
-        operator fun invoke(): Api {
+        operator fun invoke(
+            tokenInterceptor: TokenInterceptor
+        ): Api {
 
             val okHttpClient = OkHttpClient.Builder()
+                .addInterceptor(tokenInterceptor)
                 .connectTimeout(16, TimeUnit.SECONDS)
                 .build()
 
