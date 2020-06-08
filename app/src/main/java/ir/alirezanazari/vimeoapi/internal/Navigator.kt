@@ -15,8 +15,8 @@ class Navigator {
             load(true, fm, SearchFragment())
         }
 
-        fun openVideo(id: String, name: String, fm: FragmentManager?) {
-            load(false, fm, VideoFragment.newInstance())
+        fun openVideo(id: String, fm: FragmentManager?) {
+            load(false, fm, VideoFragment.newInstance(id))
         }
 
         private fun load(isReplace: Boolean, fm: FragmentManager?, fragment: Fragment) {

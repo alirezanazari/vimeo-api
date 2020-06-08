@@ -3,4 +3,5 @@
     <string name="search_video">Search Video</string>
     <string name="no_item">No item.</string>
     <string name="invalid_input">Text is too short.</string>
+    <string name="video">Video</string>
 </resources>

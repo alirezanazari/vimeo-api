@@ -12,6 +12,7 @@ import ir.alirezanazari.vimeoapi.data.net.entity.search.Video
 import ir.alirezanazari.vimeoapi.internal.Constants.Net.DIRECTION_ASC
 import ir.alirezanazari.vimeoapi.internal.Constants.Net.DIRECTION_DESC
 import ir.alirezanazari.vimeoapi.internal.Logger
+import ir.alirezanazari.vimeoapi.internal.Navigator
 import ir.alirezanazari.vimeoapi.ui.BaseFragment
 import kotlinx.android.synthetic.main.search_fragment.*
 import org.koin.android.ext.android.inject
@@ -47,7 +48,9 @@ class SearchFragment : BaseFragment() {
         }
 
         searchAdapter.onClick = {
-
+            it?.let {
+                Navigator.openVideo(it, activity?.supportFragmentManager)
+            }
         }
 
         var visibleItemCount: Int
