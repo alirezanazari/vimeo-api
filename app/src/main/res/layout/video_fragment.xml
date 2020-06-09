@@ -5,7 +5,8 @@
     style="@style/appPagesRootStyle"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.video.VideoFragment">
+    tools:context=".ui.video.VideoFragment"
+    android:keepScreenOn="true">
 
     <LinearLayout
         android:id="@+id/toolbar"
@@ -39,7 +40,7 @@
 
     </LinearLayout>
 
-    <View
+    <com.google.android.exoplayer2.ui.PlayerView
         android:id="@+id/videoPlayer"
         android:layout_width="0dp"
         android:layout_height="200dp"
@@ -141,7 +142,7 @@
         android:id="@+id/grContent"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:visibility="gone"
+        android:visibility="visible"
         app:constraint_referenced_ids="videoPlayer,rvComments,rvPictures,lblComments,lblPictures" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
