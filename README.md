@@ -1,5 +1,5 @@
 # vimeo-api
-Video Player Android application (vimeo.org)
+Android application to search and play video from Vimeo
 
 # Summery
 Used Kotlin and MVVM to develop application. </br>
