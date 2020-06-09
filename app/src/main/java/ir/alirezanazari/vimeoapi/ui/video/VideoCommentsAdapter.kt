@@ -11,7 +11,7 @@ import kotlinx.android.synthetic.main.row_comment.view.*
 
 class VideoCommentsAdapter : RecyclerView.Adapter<VideoCommentsAdapter.CommentViewHolder>() {
 
-    val items = ArrayList<Comment>()
+    private val items = ArrayList<Comment>()
 
     fun setItems(data: List<Comment>) {
         items.addAll(data)

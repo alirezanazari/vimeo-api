@@ -77,7 +77,6 @@ class VideoFragment : BaseFragment() {
             it?.let {
                 tvTitle.text = it.name
                 picturesAdapter.setItems(it.pictures.sizes)
-                //show player
             }
         })
 
@@ -130,6 +129,7 @@ class VideoFragment : BaseFragment() {
 
         player?.playWhenReady = true
         videoPlayer.player = player
+        player?.seekTo(1)
 
         val mediaSource = ProgressiveMediaSource.Factory(DefaultHttpDataSourceFactory("VimeoApi"))
             .createMediaSource(Uri.parse(url))

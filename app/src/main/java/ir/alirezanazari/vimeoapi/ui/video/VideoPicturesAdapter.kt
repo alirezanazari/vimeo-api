@@ -14,7 +14,7 @@ class VideoPicturesAdapter(
     private val imageLoader: ImageLoader
 ) : RecyclerView.Adapter<VideoPicturesAdapter.PictureViewHolder>() {
 
-    val items = ArrayList<Picture>()
+    private val items = ArrayList<Picture>()
 
     fun setItems(data: List<Picture>){
         items.addAll(data)
