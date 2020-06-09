@@ -81,6 +81,12 @@ class VideoFragment : BaseFragment() {
             }
         })
 
+        viewModel.videoMP4Response.observe(viewLifecycleOwner , Observer {
+            it?.let {
+                Logger.showLog(it)
+            }
+        })
+
         viewModel.loaderVisibilityListener.observe(viewLifecycleOwner, Observer {
             it?.let {
                 if (it) {

@@ -1,6 +1,7 @@
 package ir.alirezanazari.vimeoapi.data.net
 
 import ir.alirezanazari.vimeoapi.data.net.entity.comment.Comment
+import ir.alirezanazari.vimeoapi.data.net.entity.player.Progressive
 import ir.alirezanazari.vimeoapi.data.net.entity.search.Video
 
 
@@ -21,5 +22,7 @@ interface NetworkDataManager {
         page: Int
     ): List<Comment>?
 
-
+    suspend fun getVideoMP4File(
+        url: String
+    ): List<Progressive>?
 }

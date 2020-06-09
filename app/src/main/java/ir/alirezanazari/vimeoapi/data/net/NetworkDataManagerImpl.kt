@@ -1,6 +1,7 @@
 package ir.alirezanazari.vimeoapi.data.net
 
 import ir.alirezanazari.vimeoapi.data.net.entity.comment.Comment
+import ir.alirezanazari.vimeoapi.data.net.entity.player.Progressive
 import ir.alirezanazari.vimeoapi.data.net.entity.search.Video
 import ir.alirezanazari.vimeoapi.internal.Logger
 import retrofit2.HttpException
@@ -43,6 +44,20 @@ class NetworkDataManagerImpl(
         } catch (e: HttpException) {
             e.printStackTrace()
             Logger.showLog("Error fetch comments : ${e.message()}")
+            null
+        } catch (ex: IOException) {
+            Logger.showLog("Error in connection : ${ex.message}")
+            null
+        }
+    }
+
+    override suspend fun getVideoMP4File(url: String): List<Progressive>? {
+        return try {
+            val response = api.getVideoFile(url).await()
+            return response.request.files.progressive
+        } catch (e: HttpException) {
+            e.printStackTrace()
+            Logger.showLog("Error get video mp4 : ${e.message()}")
             null
         } catch (ex: IOException) {
             Logger.showLog("Error in connection : ${ex.message}")

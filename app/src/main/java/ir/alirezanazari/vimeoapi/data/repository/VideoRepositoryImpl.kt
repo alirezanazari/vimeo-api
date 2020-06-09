@@ -2,6 +2,7 @@ package ir.alirezanazari.vimeoapi.data.repository
 
 import ir.alirezanazari.vimeoapi.data.net.NetworkDataManager
 import ir.alirezanazari.vimeoapi.data.net.entity.comment.Comment
+import ir.alirezanazari.vimeoapi.data.net.entity.player.Progressive
 import ir.alirezanazari.vimeoapi.data.net.entity.search.Video
 
 /**
@@ -21,5 +22,9 @@ class VideoRepositoryImpl(
 
     override suspend fun getVideoComments(uri: String, page: Int): List<Comment>? {
         return net.getVideoComments(uri, page)
+    }
+
+    override suspend fun getVideoMP4File(url: String): List<Progressive>? {
+        return net.getVideoMP4File(url)
     }
 }
